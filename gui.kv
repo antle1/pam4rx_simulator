@@ -1,0 +1,409 @@
+#:kivy 1.0
+
+<Gui>:
+    canvas.before:
+        Color:
+            rgba: 242, 241, 239, 1
+        Rectangle:
+            pos: self.pos
+            size:self.size
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 10
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 10
+
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'kmax'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'rx_chan_cnt'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'rx_data_osr'
+                Button:
+                    size: 155, 30
+                    text: 'load'
+                    on_press: app.show_load()
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'tx_data_gain'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'sim_mode'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'agc_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dfe_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dco_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'lvl_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'vga_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'phz_tap_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'tr_prop_mu'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'tr_integ_mu'
+
+            BoxLayout:
+                size_hint: 1.5, 1
+                orientation: 'vertical'
+                padding: 10
+
+                TextInput:
+                    text: '100000'
+                    id: kmax_input
+
+                TextInput:
+                    text: '8'
+                    id: rx_chan_cnt_input
+
+                TextInput:
+                    text: '16'
+                    id: rx_data_osr_input
+
+                TextInput:
+                    text: 'rxDataInPam4_noISI.npy'
+                    id: tx_data_file_input
+
+                TextInput:
+                    text: '6.0'
+                    id: tx_data_gain_input
+
+                Spinner:
+                    size: 125, 30
+                    size_hint: None, None
+                    text: 'sim_mode'
+                    values: '1', '2', '3', '4', '5'
+                    id: sim_mode_input
+                    on_text: app.configure()
+
+                TextInput:
+                    text: '0.0'
+                    id: agc_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: ffe_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: dfe_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: dco_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: lvl_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: vga_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: phz_tap_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: tr_prop_mu_input
+
+                TextInput:
+                    text: '0.0'
+                    id: tr_integ_mu_input
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+
+            BoxLayout:
+                orientation: 'horizontal'
+                padding: 10
+
+                BoxLayout:
+
+                    orientation: 'vertical'
+                    padding: 10
+
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'afe_rms_noise'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'afe_rms_gain'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'afe_rms_offset'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'adc_rms_level'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'rx_rms_phase'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'rx_rms_jitter'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'rx_loop_demux'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'tr_sym_mode_flag'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'tr_loop_latency'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'plot_skip_points'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'plot_window_snr'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'load_flag'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'save_flag'
+                    Label:
+                        color: 0, 0, 0, 1
+                        text: 'plot_flag'
+
+                BoxLayout:
+                    size_hint: 1.2, 1
+                    orientation: 'vertical'
+                    padding: 10
+
+                    TextInput:
+                        text: '0.02'
+                        id: afe_rms_noise_input
+
+                    TextInput:
+                        text: '0.05'
+                        id: afe_rms_gain_input
+
+                    TextInput:
+                        text: '0.05'
+                        id: afe_rms_offset_input
+
+                    TextInput:
+                        text: '0.05'
+                        id: adc_rms_level_input
+
+                    TextInput:
+                        text: '0.05'
+                        id: rx_rms_phase_input
+
+                    TextInput:
+                        text: '0.006'
+                        id: rx_rms_jitter_input
+
+                    TextInput:
+                        text: '16'
+                        id: rx_loop_demux_input
+
+                    Spinner:
+                        size:100, 33
+                        size_hint: None, None
+                        text: 'False'
+                        values: 'True', 'False'
+                        id: tr_sym_mode_flag_input
+
+                    TextInput:
+                        text: '32'
+                        id: tr_loop_latency_input
+
+                    TextInput:
+                        text: '100'
+                        id: plot_skip_points_input
+
+                    TextInput:
+                        text: '1000'
+                        id: plot_window_snr_input
+
+                    Spinner:
+                        size: 100, 33
+                        size_hint: None, None
+                        text: 'True'
+                        values: 'True', 'False'
+                        id: load_flag_input
+
+                    Spinner:
+                        size: 100, 33
+                        size_hint: None, None
+                        text: 'True'
+                        values: 'True', 'False'
+                        id: save_flag_input
+
+                    Spinner:
+                        size: 100, 33
+                        size_hint: None, None
+                        text: 'True'
+                        values: 'True', 'False'
+                        id: plot_flag_input
+
+            Button:
+                text: 'Simulate'
+                size: 100, 50
+                size_hint: None, None
+                on_press: app.simulate()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: 10
+
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_fix'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_cnt'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_ref'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_pre'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_post'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dfe_tap_cnt'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dfe_tap_ref'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'agc_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'ffe_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dfe_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'dco_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'lvl_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'vga_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'phz_tap_step'
+                Label:
+                    color: 0, 0, 0, 1
+                    text: 'phz_tap_max'
+
+            BoxLayout:
+                size_hint: 1.5, 1
+                orientation: 'vertical'
+                padding: 10
+
+                TextInput:
+                    text: '0'
+                    id: ffe_tap_fix_input
+
+                TextInput:
+                    text: '5'
+                    id: ffe_tap_cnt_input
+
+                TextInput:
+                    text: '1'
+                    id: ffe_tap_ref_input
+
+                TextInput:
+                    text: '-0.01'
+                    id: ffe_tap_pre_input
+
+                TextInput:
+                    text: '-0.05'
+                    id: ffe_tap_post_input
+
+                TextInput:
+                    text: '5'
+                    id: dfe_tap_cnt_input
+
+                TextInput:
+                    text: '4'
+                    id: dfe_tap_ref_input
+
+                TextInput:
+                    text: '0.01'
+                    id: agc_tap_step_input
+
+                TextInput:
+                    text: '0.01'
+                    id: ffe_tap_step_input
+
+                TextInput:
+                    text: '0.01'
+                    id: dfe_tap_step_input
+
+                TextInput:
+                    text: '0.01'
+                    id: dco_tap_step_input
+
+                TextInput:
+                    text: '0.01'
+                    id: lvl_tap_step_input
+
+                TextInput:
+                    text: '0.01'
+                    id: vga_tap_step_input
+
+                TextInput:
+                    text: '0.006'
+                    id: phz_tap_step_input
+
+                TextInput:
+                    text: '15.0'
+                    id: phz_tap_max_input
+
+<LoadDialog>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Load"
+                on_release: root.load(filechooser.selection)
